@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #F0FDFA;
+    color: #134E4A;
+    overflow-x: hidden;
+}
+
+/* ── Claymorphism Card ── */
+.clay-card {
+    background: #FFFFFF;
+    border: 3px solid #134E4A;
+    border-radius: 20px;
+    box-shadow:
+        inset -3px -3px 8px rgba(19, 78, 74, 0.10),
+        6px 6px 0px #134E4A;
+    transition: all 0.2s ease-out;
+}
+
+.clay-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow:
+        inset -3px -3px 8px rgba(19, 78, 74, 0.10),
+        8px 8px 0px #134E4A;
+}
+
+.clay-card:active {
+    transform: translate(3px, 3px);
+    box-shadow:
+        inset -1px -1px 4px rgba(19, 78, 74, 0.10),
+        3px 3px 0px #134E4A;
+}
+
+.clay-card-accent {
+    background: #FFFFFF;
+    border: 3px solid #F97316;
+    border-radius: 20px;
+    box-shadow:
+        inset -3px -3px 8px rgba(249, 115, 22, 0.10),
+        6px 6px 0px #F97316;
+    transition: all 0.2s ease-out;
+}
+
+.clay-card-accent:hover {
+    transform: translate(-2px, -2px);
+    box-shadow:
+        inset -3px -3px 8px rgba(249, 115, 22, 0.10),
+        8px 8px 0px #F97316;
+}
+
+/* ── Clay Button ── */
+.clay-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    font-family: '"Baloo 2"', cursive;
+    font-weight: 600;
+    font-size: 1.05rem;
+    border: 3px solid #134E4A;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    text-decoration: none;
+}
+
+.clay-btn-primary {
+    background: #0D9488;
+    color: #FFFFFF;
+    box-shadow:
+        inset -3px -3px 8px rgba(0, 0, 0, 0.12),
+        5px 5px 0px #134E4A;
+}
+
+.clay-btn-primary:hover {
+    transform: translate(-2px, -2px);
+    box-shadow:
+        inset -3px -3px 8px rgba(0, 0, 0, 0.12),
+        7px 7px 0px #134E4A;
+}
+
+.clay-btn-primary:active {
+    transform: translate(3px, 3px);
+    box-shadow:
+        inset -1px -1px 4px rgba(0, 0, 0, 0.12),
+        2px 2px 0px #134E4A;
+}
+
+.clay-btn-accent {
+    background: #F97316;
+    color: #FFFFFF;
+    box-shadow:
+        inset -3px -3px 8px rgba(0, 0, 0, 0.12),
+        5px 5px 0px #C2410C;
+}
+
+.clay-btn-accent:hover {
+    transform: translate(-2px, -2px);
+    box-shadow:
+        inset -3px -3px 8px rgba(0, 0, 0, 0.12),
+        7px 7px 0px #C2410C;
+}
+
+.clay-btn-accent:active {
+    transform: translate(3px, 3px);
+    box-shadow:
+        inset -1px -1px 4px rgba(0, 0, 0, 0.12),
+        2px 2px 0px #C2410C;
+}
+
+.clay-btn-outline {
+    background: #FFFFFF;
+    color: #134E4A;
+    box-shadow:
+        inset -3px -3px 8px rgba(19, 78, 74, 0.06),
+        5px 5px 0px #134E4A;
+}
+
+.clay-btn-outline:hover {
+    transform: translate(-2px, -2px);
+    box-shadow:
+        inset -3px -3px 8px rgba(19, 78, 74, 0.06),
+        7px 7px 0px #134E4A;
+}
+
+.clay-btn-outline:active {
+    transform: translate(3px, 3px);
+    box-shadow:
+        inset -1px -1px 4px rgba(19, 78, 74, 0.06),
+        2px 2px 0px #134E4A;
+}
+
+/* ── Clay Input ── */
+.clay-input {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    border: 3px solid #134E4A;
+    border-radius: 16px;
+    background: #FFFFFF;
+    outline: none;
+    transition: all 0.2s ease-out;
+    box-shadow:
+        inset -2px -2px 6px rgba(19, 78, 74, 0.06),
+        inset 2px 2px 6px rgba(19, 78, 74, 0.06);
+}
+
+.clay-input:focus {
+    border-color: #0D9488;
+    box-shadow:
+        inset -2px -2px 6px rgba(13, 148, 136, 0.10),
+        inset 2px 2px 6px rgba(13, 148, 136, 0.10),
+        0 0 0 3px rgba(13, 148, 136, 0.20);
+}
+
+/* ── Badge / Chip ── */
+.clay-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.9rem;
+    font-family: '"Baloo 2"', cursive;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border: 2.5px solid #134E4A;
+    border-radius: 40px;
+    background: #FFFFFF;
+    box-shadow: inset -2px -2px 5px rgba(19, 78, 74, 0.08), 3px 3px 0px #134E4A;
+}
+
+/* ── Section Headings ── */
+.section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1.2rem;
+    background: #0D9488;
+    color: #FFFFFF;
+    font-family: '"Baloo 2"', cursive;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 2.5px solid #134E4A;
+    border-radius: 40px;
+    box-shadow: inset -2px -2px 6px rgba(0, 0, 0, 0.10), 4px 4px 0px #134E4A;
+}
+
+/* ── Progress Bar ── */
+.clay-progress {
+    width: 100%;
+    height: 12px;
+    background: #E2E8F0;
+    border: 2.5px solid #134E4A;
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.clay-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0D9488, #2DD4BF);
+    border-radius: 40px;
+    transition: width 1s ease;
+}
+
+/* ── Star Rating ── */
+.star {
+    color: #F97316;
+}
+
+/* ── Responsive tweaks ── */
+@media (max-width: 640px) {
+
+    .clay-card,
+    .clay-card-accent {
+        border-radius: 16px;
+    }
+
+    .clay-btn {
+        padding: 0.65rem 1.4rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
