@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnFlow Academy — Master Any Skill, Anytime</title>
+  <meta name="description" content="LearnFlow Academy is the ultimate E-Learning platform with 5,000+ interactive courses. Learn at your own pace with expert instructors, gamified progress, and a vibrant community." />
+
+  <!-- Google Fonts: Baloo 2 for headings, Inter for body (clean & readable) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['"Baloo 2"', 'cursive'],
+            body: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            primary: { DEFAULT: '#0D9488', 50: '#F0FDFA', 100: '#CCFBF1', 200: '#99F6E4', 300: '#5EEAD4', 400: '#2DD4BF', 500: '#14B8A6', 600: '#0D9488', 700: '#0F766E', 800: '#115E59', 900: '#134E4A' },
+            accent: { DEFAULT: '#F97316', 50: '#FFF7ED', 100: '#FFEDD5', 200: '#FED7AA', 300: '#FDBA74', 400: '#FB923C', 500: '#F97316', 600: '#EA580C', 700: '#C2410C', 800: '#9A3412', 900: '#7C2D12' },
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'float-slow': 'float 8s ease-in-out infinite',
+            'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            pulseSoft: {
+              '0%, 100%': { opacity: '1' },
+              '50%': { opacity: '0.7' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Claymorphism Global Styles -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F0FDFA;
+      color: #134E4A;
+      overflow-x: hidden;
+    }
+
+    /* ── Claymorphism Card ── */
+    .clay-card {
+      background: #FFFFFF;
+      border: 3px solid #134E4A;
+      border-radius: 20px;
+      box-shadow:
+        inset -3px -3px 8px rgba(19, 78, 74, 0.10),
+        6px 6px 0px #134E4A;
+      transition: all 0.2s ease-out;
+    }
+    .clay-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow:
+        inset -3px -3px 8px rgba(19, 78, 74, 0.10),
+        8px 8px 0px #134E4A;
+    }
+    .clay-card:active {
+      transform: translate(3px, 3px);
+      box-shadow:
+        inset -1px -1px 4px rgba(19, 78, 74, 0.10),
+        3px 3px 0px #134E4A;
+    }
+
+    .clay-card-accent {
+      background: #FFFFFF;
+      border: 3px solid #F97316;
+      border-radius: 20px;
+      box-shadow:
+        inset -3px -3px 8px rgba(249, 115, 22, 0.10),
+        6px 6px 0px #F97316;
+      transition: all 0.2s ease-out;
+    }
+    .clay-card-accent:hover {
+      transform: translate(-2px, -2px);
+      box-shadow:
+        inset -3px -3px 8px rgba(249, 115, 22, 0.10),
+        8px 8px 0px #F97316;
+    }
+
+    /* ── Clay Button ── */
+    .clay-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      font-family: '"Baloo 2"', cursive;
+      font-weight: 600;
+      font-size: 1.05rem;
+      border: 3px solid #134E4A;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease-out;
+      text-decoration: none;
+    }
+    .clay-btn-primary {
+      background: #0D9488;
+      color: #FFFFFF;
+      box-shadow:
+        inset -3px -3px 8px rgba(0,0,0,0.12),
+        5px 5px 0px #134E4A;
+    }
+    .clay-btn-primary:hover {
+      transform: translate(-2px, -2px);
+      box-shadow:
+        inset -3px -3px 8px rgba(0,0,0,0.12),
+        7px 7px 0px #134E4A;
+    }
+    .clay-btn-primary:active {
+      transform: translate(3px, 3px);
+      box-shadow:
+        inset -1px -1px 4px rgba(0,0,0,0.12),
+        2px 2px 0px #134E4A;
+    }
+
+    .clay-btn-accent {
+      background: #F97316;
+      color: #FFFFFF;
+      box-shadow:
+        inset -3px -3px 8px rgba(0,0,0,0.12),
+        5px 5px 0px #C2410C;
+    }
+    .clay-btn-accent:hover {
+      transform: translate(-2px, -2px);
+      box-shadow:
+        inset -3px -3px 8px rgba(0,0,0,0.12),
+        7px 7px 0px #C2410C;
+    }
+    .clay-btn-accent:active {
+      transform: translate(3px, 3px);
+      box-shadow:
+        inset -1px -1px 4px rgba(0,0,0,0.12),
+        2px 2px 0px #C2410C;
+    }
+
+    .clay-btn-outline {
+      background: #FFFFFF;
+      color: #134E4A;
+      box-shadow:
+        inset -3px -3px 8px rgba(19, 78, 74, 0.06),
+        5px 5px 0px #134E4A;
+    }
+    .clay-btn-outline:hover {
+      transform: translate(-2px, -2px);
+      box-shadow:
+        inset -3px -3px 8px rgba(19, 78, 74, 0.06),
+        7px 7px 0px #134E4A;
+    }
+    .clay-btn-outline:active {
+      transform: translate(3px, 3px);
+      box-shadow:
+        inset -1px -1px 4px rgba(19, 78, 74, 0.06),
+        2px 2px 0px #134E4A;
+    }
+
+    /* ── Clay Input ── */
+    .clay-input {
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      border: 3px solid #134E4A;
+      border-radius: 16px;
+      background: #FFFFFF;
+      outline: none;
+      transition: all 0.2s ease-out;
+      box-shadow:
+        inset -2px -2px 6px rgba(19, 78, 74, 0.06),
+        inset 2px 2px 6px rgba(19, 78, 74, 0.06);
+    }
+    .clay-input:focus {
+      border-color: #0D9488;
+      box-shadow:
+        inset -2px -2px 6px rgba(13, 148, 136, 0.10),
+        inset 2px 2px 6px rgba(13, 148, 136, 0.10),
+        0 0 0 3px rgba(13, 148, 136, 0.20);
+    }
+
+    /* ── Badge / Chip ── */
+    .clay-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.9rem;
+      font-family: '"Baloo 2"', cursive;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: 2.5px solid #134E4A;
+      border-radius: 40px;
+      background: #FFFFFF;
+      box-shadow: inset -2px -2px 5px rgba(19,78,74,0.08), 3px 3px 0px #134E4A;
+    }
+
+    /* ── Section Headings ── */
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1.2rem;
+      background: #0D9488;
+      color: #FFFFFF;
+      font-family: '"Baloo 2"', cursive;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 2.5px solid #134E4A;
+      border-radius: 40px;
+      box-shadow: inset -2px -2px 6px rgba(0,0,0,0.10), 4px 4px 0px #134E4A;
+    }
+
+    /* ── Progress Bar ── */
+    .clay-progress {
+      width: 100%;
+      height: 12px;
+      background: #E2E8F0;
+      border: 2.5px solid #134E4A;
+      border-radius: 40px;
+      overflow: hidden;
+    }
+    .clay-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #0D9488, #2DD4BF);
+      border-radius: 40px;
+      transition: width 1s ease;
+    }
+
+    /* ── Star Rating ── */
+    .star { color: #F97316; }
+
+    /* ── Responsive tweaks ── */
+    @media (max-width: 640px) {
+      .clay-card, .clay-card-accent { border-radius: 16px; }
+      .clay-btn { padding: 0.65rem 1.4rem; font-size: 0.95rem; }
+    }
+
+    /* ── Reduced motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================ -->
+  <!-- NAVBAR                                                       -->
+  <!-- ============================================================ -->
+  <nav class="fixed top-4 left-4 right-4 z-50 max-w-6xl mx-auto" role="navigation" aria-label="Main navigation">
+    <div class="clay-card flex items-center justify-between px-5 py-3 sm:px-8 sm:py-3.5 bg-white/95 backdrop-blur-sm">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2.5 no-underline group cursor-pointer">
+        <div class="w-10 h-10 bg-primary rounded-xl border-[2.5px] border-[#134E4A] flex items-center justify-center shadow-[inset_-2px_-2px_5px_rgba(0,0,0,0.08),3px_3px_0px_#134E4A] transition-transform duration-200 group-hover:scale-105">
+          <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+        </div>
+        <span class="font-heading text-xl sm:text-2xl font-bold text-[#134E4A]">LearnFlow</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-8" role="menubar">
+        <a href="#courses" class="font-body text-sm font-medium text-[#134E4A]/70 hover:text-[#134E4A] transition-colors duration-200 no-underline cursor-pointer" role="menuitem">Courses</a>
+        <a href="#how-it-works" class="font-body text-sm font-medium text-[#134E4A]/70 hover:text-[#134E4A] transition-colors duration-200 no-underline cursor-pointer" role="menuitem">How It Works</a>
+        <a href="#pricing" class="font-body text-sm font-medium text-[#134E4A]/70 hover:text-[#134E4A] transition-colors duration-200 no-underline cursor-pointer" role="menuitem">Pricing</a>
+        <a href="#testimonials" class="font-body text-sm font-medium text-[#134E4A]/70 hover:text-[#134E4A] transition-colors duration-200 no-underline cursor-pointer" role="menuitem">Testimonials</a>
+      </div>
+
+      <!-- Nav Actions -->
+      <div class="flex items-center gap-3">
+        <a href="#" class="hidden sm:inline-flex font-body text-sm font-medium text-[#134E4A]/70 hover:text-[#134E4A] transition-colors duration-200 no-underline cursor-pointer">Log In</a>
+        <a href="#" class="clay-btn clay-btn-primary !py-2 !px-4 sm:!py-2.5 sm:!px-5 !text-sm !border-[2.5px] no-underline cursor-pointer">
+          Start Free
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <!-- Mobile menu toggle -->
+        <button class="md:hidden clay-card !border-[2.5px] !rounded-xl !p-2 !shadow-[inset_-2px_-2px_5px_rgba(0,0,0,0.06),3px_3px_0px_#134E4A] cursor-pointer" aria-label="Toggle menu" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+          <svg class="w-5 h-5 text-[#134E4A]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden mt-2 clay-card !rounded-2xl p-4 bg-white" role="menu">
+      <div class="flex flex-col gap-3">
+        <a href="#courses" class="font-body text-base font-medium text-[#134E4A] py-2 no-underline cursor-pointer" role="menuitem" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Courses</a>
+        <a href="#how-it-works" class="font-body text-base font-medium text-[#134E4A] py-2 no-underline cursor-pointer" role="menuitem" onclick="document.getElementById('mobile-menu').classList.add('hidden')">How It Works</a>
+        <a href="#pricing" class="font-body text-base font-medium text-[#134E4A] py-2 no-underline cursor-pointer" role="menuitem" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Pricing</a>
+        <a href="#testimonials" class="font-body text-base font-medium text-[#134E4A] py-2 no-underline cursor-pointer" role="menuitem" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Testimonials</a>
+        <hr class="border-[#134E4A]/10 my-1" />
+        <a href="#" class="font-body text-base font-medium text-[#134E4A] py-2 no-underline cursor-pointer">Log In</a>
+        <a href="#" class="clay-btn clay-btn-primary justify-center no-underline cursor-pointer">Start Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================ -->
+  <!-- HERO SECTION                                                 -->
+  <!-- ============================================================ -->
+  <section class="relative pt-32 pb-16 sm:pt-40 sm:pb-20 px-4 overflow-hidden" aria-label="Hero">
+    <!-- Background decorative blobs -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute top-20 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+    <div class="max-w-6xl mx-auto relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left: Text Content -->
+        <div>
+          <!-- Badge -->
+          <div class="clay-badge mb-6 w-fit">
+            <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            5,000+ Courses &bull; 500K+ Learners
+          </div>
+
+          <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-[#134E4A] leading-[1.1] mb-6">
+            Master Any Skill,
+            <span class="text-primary">Anytime.</span>
+            <span class="text-accent">Anywhere.</span>
+          </h1>
+
+          <p class="font-body text-lg sm:text-xl text-[#134E4A]/70 leading-relaxed mb-8 max-w-xl">
+            Learn from world-class instructors with interactive lessons, real-time feedback,
+            and a gamified experience that keeps you motivated every step of the way.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap gap-4 mb-10">
+            <a href="#" class="clay-btn clay-btn-accent text-base sm:text-lg no-underline cursor-pointer">
+              Get Started Free
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+            <a href="#" class="clay-btn clay-btn-outline text-base sm:text-lg no-underline cursor-pointer">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              Watch Demo
+            </a>
+          </div>
+
+          <!-- Stats Row -->
+          <div class="flex flex-wrap gap-6 sm:gap-10">
+            <div>
+              <p class="font-heading text-2xl sm:text-3xl font-bold text-[#134E4A]">500K+</p>
+              <p class="font-body text-sm text-[#134E4A]/60">Active Learners</p>
+            </div>
+            <div>
+              <p class="font-heading text-2xl sm:text-3xl font-bold text-[#134E4A]">5,000+</p>
+              <p class="font-body text-sm text-[#134E4A]/60">Expert Courses</p>
+            </div>
+            <div>
+              <p class="font-heading text-2xl sm:text-3xl font-bold text-[#134E4A]">98%</p>
+              <p class="font-body text-sm text-[#134E4A]/60">Satisfaction Rate</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Hero Visual -->
+        <div class="relative">
+          <!-- Main mockup -->
+          <div class="clay-card-accent p-4 sm:p-6 animate-float">
+            <div class="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl p-4 sm:p-5 border-[2.5px] border-[#134E4A]">
+              <!-- Top bar -->
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 rounded-full bg-red-400 border-[1.5px] border-[#134E4A]"></div>
+                  <div class="w-3 h-3 rounded-full bg-yellow-400 border-[1.5px] border-[#134E4A]"></div>
+                  <div class="w-3 h-3 rounded-full bg-green-400 border-[1.5px] border-[#134E4A]"></div>
+                </div>
+                <span class="font-heading text-xs font-semibold text-[#134E4A]/60">Course Player</span>
+              </div>
+              <!-- Video placeholder -->
+              <div class="relative rounded-xl bg-[#134E4A] mb-4 aspect-video flex items-center justify-center border-[2.5px] border-[#134E4A] overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/20 pointer-events-none" aria-hidden="true"></div>
+                <button class="w-16 h-16 sm:w-20 sm:h-20 bg-accent rounded-full border-[3px] border-[#134E4A] flex items-center justify-center shadow-[inset_-3px_-3px_6px_rgba(0,0,0,0.15),4px_4px_0px_#C2410C] hover:shadow-[inset_-3px_-3px_6px_rgba(0,0,0,0.15),6px_6px_0px_#C2410C] transition-all duration-200 hover:scale-105 cursor-pointer" aria-label="Play course preview">
+                  <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+              </div>
+              <!-- Course info -->
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="font-heading font-bold text-[#134E4A] text-sm sm:text-base">UI/UX Design Masterclass</p>
+                  <div class="flex items-center gap-1.5 mt-1">
+                    <span class="star text-sm" aria-label="4.9 stars">★★★★★</span>
+                    <span class="font-body text-xs font-semibold text-[#134E4A]/70">4.9</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <p class="font-heading text-xs text-[#134E4A]/50">Progress</p>
+                  <div class="w-20 sm:w-24 mt-1">
+                    <div class="clay-progress !h-2.5">
+                      <div class="clay-progress-fill" style="width: 72%" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <p class="font-heading text-xs font-bold text-primary mt-0.5">72% complete</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating badge 1 -->
+          <div class="absolute -top-3 -right-3 sm:-top-5 sm:-right-5 clay-card !rounded-2xl !p-3 sm:!p-4 !border-[2.5px] flex items-center gap-2 animate-float-slow bg-white" style="animation-delay: 0.5s;">
+            <div class="w-10 h-10 bg-accent/20 rounded-xl border-[2px] border-[#134E4A] flex items-center justify-center">
+              <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div>
+              <p class="font-heading text-sm font-bold text-[#134E4A]">Certificate</p>
+              <p class="font-body text-xs text-[#134E4A]/60">Upon completion</p>
+            </div>
+          </div>
+
+          <!-- Floating badge 2 -->
+          <div class="absolute -bottom-3 -left-3 sm:-bottom-5 sm:-left-5 clay-card !rounded-2xl !p-3 sm:!p-4 !border-[2.5px] flex items-center gap-2 animate-float bg-white" style="animation-delay: 1s;">
+            <div class="w-10 h-10 bg-primary/20 rounded-xl border-[2px] border-[#134E4A] flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <div>
+              <p class="font-heading text-sm font-bold text-[#134E4A]">AI-Powered</p>
+              <p class="font-body text-xs text-[#134E4A]/60">Personalized path</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- TRUSTED BY / PARTNER LOGOS                                   -->
+  <!-- ============================================================ -->
+  <section class="py-12 sm:py-16 px-4" aria-label="Trusted by companies">
+    <div class="max-w-6xl mx-auto text-center">
+      <p class="font-body text-sm font-semibold text-[#134E4A]/50 uppercase tracking-widest mb-8">Trusted by leading organizations worldwide</p>
+      <div class="flex flex-wrap justify-center items-center gap-8 sm:gap-12 md:gap-16 opacity-50">
+        <!-- SVG logos as simple representations -->
+        <div class="flex items-center gap-2" aria-label="TechCorp">
+          <div class="w-8 h-8 bg-[#134E4A] rounded-lg border-2 border-[#134E4A] flex items-center justify-center text-white font-heading font-bold text-xs">T</div>
+          <span class="font-heading text-lg font-bold text-[#134E4A]">TechCorp</span>
+        </div>
+        <div class="flex items-center gap-2" aria-label="EduGlobal">
+          <div class="w-8 h-8 bg-primary rounded-lg border-2 border-[#134E4A] flex items-center justify-center text-white font-heading font-bold text-xs">E</div>
+          <span class="font-heading text-lg font-bold text-[#134E4A]">EduGlobal</span>
+        </div>
+        <div class="flex items-center gap-2" aria-label="DataVista">
+          <div class="w-8 h-8 bg-accent rounded-lg border-2 border-[#134E4A] flex items-center justify-center text-white font-heading font-bold text-xs">D</div>
+          <span class="font-heading text-lg font-bold text-[#134E4A]">DataVista</span>
+        </div>
+        <div class="flex items-center gap-2" aria-label="SkillBridge">
+          <div class="w-8 h-8 bg-purple-500 rounded-lg border-2 border-[#134E4A] flex items-center justify-center text-white font-heading font-bold text-xs">S</div>
+          <span class="font-heading text-lg font-bold text-[#134E4A]">SkillBridge</span>
+        </div>
+        <div class="flex items-center gap-2" aria-label="InnovateLabs">
+          <div class="w-8 h-8 bg-pink-500 rounded-lg border-2 border-[#134E4A] flex items-center justify-center text-white font-heading font-bold text-xs">I</div>
+          <span class="font-heading text-lg font-bold text-[#134E4A]">InnovateLabs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FEATURES SECTION                                             -->
+  <!-- ============================================================ -->
+  <section id="features" class="py-16 sm:py-24 px-4 relative" aria-label="Features">
+    <div class="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+    <div class="max-w-6xl mx-auto relative z-10">
+      <div class="text-center mb-14 sm:mb-18">
+        <div class="section-badge mb-4 mx-auto w-fit">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          Why LearnFlow
+        </div>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#134E4A] mb-4">Everything You Need to Succeed</h2>
+        <p class="font-body text-lg text-[#134E4A]/60 max-w-2xl mx-auto">From interactive lessons to live mentorship — we've built the ultimate learning experience.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <!-- Feature 1 -->
+        <div class="clay-card p-6 sm:p-8 bg-white cursor-pointer">
+          <div class="w-14 h-14 bg-primary/20 rounded-2xl border-[2.5px] border-[#134E4A] flex items-center justify-center mb-5 shadow-[inset_-2px_-2px_5px_rgba(0,0,0,0.04)]">
+            <svg class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-[#134E4A] mb-2">AI-Powered Learning Path</h3>
+          <p class="font-body text-sm text-[#134E4A]/70 leading-relaxed">Our AI analyzes your skill level and goals to create a personalized curriculum that adapts as you progress.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="clay-card p-6 sm:p-8 bg-white cursor-pointer">
+          <div class="w-14 h-14 bg-accent/20 rounded-2xl border-[2.5px] border-[#134E4A] flex items-center justify-center mb-5 shadow-[inset_-2px_-2px_5px_rgba(0,0,0,0.04)]">
+            <svg class="w-7 h-7 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-[#134E4A] mb-2">Interactive Video Lessons</h3>
+          <p class="font-body text-sm text-[#134E4A]/70 leading-relaxed">Engage with hands-on coding exercises, quizzes, and projects embedded directly in every lesson.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="clay-card p-6 sm:p-8 bg-white cursor-pointer">
+          <div class="w-14 h-14 bg-primary/20 rounded-2xl border-[2.5px] border-[#134E4A] flex items-center justify-center mb-5 shadow-[inset_-2px_-2px_5px_rgba(0,0,0,0.04)]">
+            <svg class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-[#134E4A] mb-2">Live Mentorship</h3>
+          <p class="font-body text-sm text-[#134E4A]/70 leading-relaxed">Get 1:1 feedback from industry experts, join live study groups, and never learn alone.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="clay-card p-6 sm:p-8 bg-white cursor-pointer">
+          <div class="w-14 h-14 bg-accent/20 rounded-2xl border-[2.5px] border-[#134E4A] flex items-center justify-center mb-5 shadow-[inset_-2px_-2px_5px_rgba(0,0,0,0.04)]">
+            <svg class="w-7 h-7 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-[#134E4A] mb-2">Gamified Progress</h3>
+          <p class="font-body text-sm text-[#134E4A]/70 leading-relaxed">Earn XP, unlock achievements, maintain streaks, and compete on leaderboards as you learn.</p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="clay-card p-6 sm:p-8 bg-white cursor-pointer">
+          <div class="w-14 h-14 bg-primary/20 rounded-2xl border-[2.5px] border-[#134E4A] flex items-center justify-center mb-5 shadow-[inset_-2px_-2px_5px_rgba(0,0,0,0.04)]">
+            <svg class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-[#134E4A] mb-2">Certificate & Portfolio</h3>
+          <p class="font-body text-sm text-[#134E4A]/70 leading-relaxed">Earn verifiable certificates and build a shareable portfolio that showcases your new skills.</p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="clay-card p-6 sm:p-8 bg-white cursor-pointer">
+          <div class="w-14 h-14 bg-accent/20 rounded-2xl border-[2.5px] border-[#134E4A] flex items-center justify-center mb-5 shadow-[inset_-2px_-2px_5px_rgba(0,0,0,0.04)]">
+            <svg class="w-7 h-7 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-[#134E4A] mb-2">Learn at Your Pace</h3>
+          <p class="font-body text-sm text-[#134E4A]/70 leading-relaxed">Full mobile access with offline downloads. Learn during your commute, lunch break, or whenever inspiration strikes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- POPULAR COURSES                                              -->
+  <!-- ============================================================ -->
+  <section id="courses" class="py-16 sm:py-24 px-4 bg-primary-50/50" aria-label="Popular courses">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 sm:mb-16">
+        <div>
+          <div class="section-badge mb-4 w-fit">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            Popular Courses
+          </div>
+          <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#134E4A]">Top-Rated Courses</h2>
+        </div>
+        <a href="#" class="clay-btn clay-btn-outline mt-4 sm:mt-0 no-underline cursor-pointer">
+          View All Courses
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <!-- Course 1 -->
+        <div class="clay-card bg-white overflow-hidden cursor-pointer group">
+          <div class="relative aspect-video bg-gradient-to-br from-primary-200 to-primary-400 border-b-[3px] border-[#134E4A] overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg class="w-16 h-16 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/></svg>
+            </div>
+            <div class="absolute top-3 left-3">
+              <span class="clay-badge !text-xs !py-1 !px-3 !border-[2px] bg-white">
+                <svg class="w-3 h-3 text-accent" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                Bestseller
+              </span>
+            </div>
+            <div class="absolute top-3 right-3">
+              <span class="clay-badge !text-xs !py-1 !px-3 !border-[2px] bg-white">
+                <span class="star text-xs">★★★★★</span> 4.9
+              </span>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="font-body text-xs font-semibold text-primary bg-primary-50 px-2.5 py-0.5 rounded-full border-[1.5px] border-[#134E4A]/30">Design</span>
+              <span class="font-body text-xs text-[#134E4A]/40">•</span>
+              <span class="font-body text-xs text-[#134E4A]/50">24 hours</span>
+            </div>
+            <h3 class="font-heading text-lg font-bold text-[#134E4A] mb-1 group-hover:text-primary transition-colors duration-200">UI/UX Design Masterclass</h3>
+            <p class="font-body text-sm text-[#134E4A]/60 mb-3">Sarah Chen</p>
+            <div class="clay-progress mb-2">
+              <div class="clay-progress-fill" style="width: 72%" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="font-body text-xs text-[#134E4A]/50">1,847 enrolled</span>
+              <span class="font-heading font-bold text-primary text-lg">$49</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 2 -->
+        <div class="clay-card bg-white overflow-hidden cursor-pointer group">
+          <div class="relative aspect-video bg-gradient-to-br from-accent-200 to-accent-400 border-b-[3px] border-[#134E4A] overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg class="w-16 h-16 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            </div>
+            <div class="absolute top-3 right-3">
+              <span class="clay-badge !text-xs !py-1 !px-3 !border-[2px] bg-white">
+                <span class="star text-xs">★★★★☆</span> 4.7
+              </span>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="font-body text-xs font-semibold text-accent bg-accent-50 px-2.5 py-0.5 rounded-full border-[1.5px] border-[#134E4A]/30">Coding</span>
+              <span class="font-body text-xs text-[#134E4A]/40">•</span>
+              <span class="font-body text-xs text-[#134E4A]/50">36 hours</span>
+            </div>
+            <h3 class="font-heading text-lg font-bold text-[#134E4A] mb-1 group-hover:text-primary transition-colors duration-200">Full-Stack Web Dev Bootcamp</h3>
+            <p class="font-body text-sm text-[#134E4A]/60 mb-3">Marcus Johnson</p>
+            <div class="clay-progress mb-2">
+              <div class="clay-progress-fill" style="width: 45%" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="font-body text-xs text-[#134E4A]/50">2,341 enrolled</span>
+              <span class="font-heading font-bold text-accent text-lg">$79</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 3 -->
+        <div class="clay-card bg-white overflow-hidden cursor-pointer group">
+          <div class="relative aspect-video bg-gradient-to-br from-purple-200 to-purple-400 border-b-[3px] border-[#134E4A] overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg class="w-16 h-16 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            </div>
+            <div class="absolute top-3 right-3">
+              <span class="clay-badge !text-xs !py-1 !px-3 !border-[2px] bg-white">
+                <span class="star text-xs">★★★★★</span> 4.8
+              </span>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="font-body text-xs font-semibold text-purple-600 bg-purple-50 px-2.5 py-0.5 rounded-full border-[1.5px] border-[#134E4A]/30">AI & Data</span>
+              <span class="font-body text-xs text-[#134E4A]/40">•</span>
+              <span class="font-body text-xs text-[#134E4A]/50">28 hours</span>
+            </div>
+            <h3 class="font-heading text-lg font-bold text-[#134E4A] mb-1 group-hover:text-primary transition-colors duration-200">Machine Learning A-Z</h3>
+            <p class="font-body text-sm text-[#134E4A]/60 mb-3">Dr. Aisha Patel</p>
+            <div class="clay-progress mb-2">
+              <div class="clay-progress-fill" style="width: 18%" role="progressbar" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="font-body text-xs text-[#134E4A]/50">3,102 enrolled</span>
+              <span class="font-heading font-bold text-purple-600 text-lg">$89</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- HOW IT WORKS                                                 -->
+  <!-- ============================================================ -->
+  <section id="how-it-works" class="py-16 sm:py-24 px-4" aria-label="How It Works">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14 sm:mb-18">
+        <div class="section-badge mb-4 mx-auto w-fit">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          How It Works
+        </div>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#134E4A] mb-4">Start Learning in 3 Simple Steps</h2>
+        <p class="font-body text-lg text-[#134E4A]/60 max-w-2xl mx-auto">No fluff. No commitment. Just pure learning from day one.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-8 sm:gap-12 relative">
+        <!-- Connector line (desktop) -->
+        <div class="hidden lg:block absolute top-24 left-[17%] right-[17%] h-[3px] bg-[#134E4A]/10 border-t-2 border-dashed border-[#134E4A]/20 pointer-events-none" aria-hidden="true"></div>
+
+        <!-- Step 1 -->
+        <div class="text-center relative">
+          <div class="clay-card w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mx-auto mb-6 bg-white border-[3px] z-10 relative">
+            <span class="font-heading text-3xl sm:text-4xl font-extrabold text-primary">1</span>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-[#134E4A] mb-2">Pick Your Path</h3>
+          <p class="font-body text-sm text-[#134E4A]/70 leading-relaxed max-w-xs mx-auto">Browse 5,000+ courses across design, coding, data science, business & more. Filter by level, duration, or topic.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="text-center relative">
+          <div class="clay-card w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mx-auto mb-6 bg-white border-[3px] z-10 relative">
+            <span class="font-heading text-3xl sm:text-4xl font-extrabold text-accent">2</span>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-[#134E4A] mb-2">Learn Interactively</h3>
+          <p class="font-body text-sm text-[#134E4A]/70 leading-relaxed max-w-xs mx-auto">Watch lessons, solve challenges, build projects, and get instant AI feedback on your work.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="text-center relative">
+          <div class="clay-card w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mx-auto mb-6 bg-white border-[3px] z-10 relative">
+            <span class="font-heading text-3xl sm:text-4xl font-extrabold text-primary">3</span>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-[#134E4A] mb-2">Earn Your Certificate</h3>
+          <p class="font-body text-sm text-[#134E4A]/70 leading-relaxed max-w-xs mx-auto">Complete the course, earn a verified certificate, and showcase your new skills to the world.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- GAMIFICATION / STATS STRIP                                   -->
+  <!-- ============================================================ -->
+  <section class="py-12 sm:py-16 px-4 bg-primary-50/50" aria-label="Learning stats and gamification">
+    <div class="max-w-6xl mx-auto">
+      <div class="clay-card-accent p-6 sm:p-10 bg-white">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
+          <div>
+            <div class="w-14 h-14 bg-accent/20 rounded-2xl border-[2.5px] border-[#134E4A] flex items-center justify-center mx-auto mb-3">
+              <svg class="w-7 h-7 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <p class="font-heading text-3xl font-extrabold text-[#134E4A]">12,458</p>
+            <p class="font-body text-sm text-[#134E4A]/60">XP Earned This Week</p>
+          </div>
+          <div>
+            <div class="w-14 h-14 bg-primary/20 rounded-2xl border-[2.5px] border-[#134E4A] flex items-center justify-center mx-auto mb-3">
+              <svg class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <p class="font-heading text-3xl font-extrabold text-[#134E4A]">15 Days</p>
+            <p class="font-body text-sm text-[#134E4A]/60">Current Learning Streak</p>
+          </div>
+          <div>
+            <div class="w-14 h-14 bg-accent/20 rounded-2xl border-[2.5px] border-[#134E4A] flex items-center justify-center mx-auto mb-3">
+              <svg class="w-7 h-7 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            </div>
+            <p class="font-heading text-3xl font-extrabold text-[#134E4A]">8</p>
+            <p class="font-body text-sm text-[#134E4A]/60">Achievements Unlocked</p>
+          </div>
+          <div>
+            <div class="w-14 h-14 bg-primary/20 rounded-2xl border-[2.5px] border-[#134E4A] flex items-center justify-center mx-auto mb-3">
+              <svg class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <p class="font-heading text-3xl font-extrabold text-[#134E4A]">#12</p>
+            <p class="font-body text-sm text-[#134E4A]/60">Global Leaderboard Rank</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- TESTIMONIALS                                                 -->
+  <!-- ============================================================ -->
+  <section id="testimonials" class="py-16 sm:py-24 px-4" aria-label="Testimonials">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14 sm:mb-18">
+        <div class="section-badge mb-4 mx-auto w-fit">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          Testimonials
+        </div>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#134E4A] mb-4">Loved by Learners Worldwide</h2>
+        <p class="font-body text-lg text-[#134E4A]/60 max-w-2xl mx-auto">Join 500,000+ students who transformed their careers through LearnFlow.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <!-- Testimonial 1 -->
+        <div class="clay-card p-6 sm:p-8 bg-white">
+          <div class="flex items-center gap-1 mb-4">
+            <span class="star text-sm">★★★★★</span>
+            <span class="font-body text-xs text-[#134E4A]/50 ml-1">5.0</span>
+          </div>
+          <blockquote class="font-body text-sm text-[#134E4A]/80 leading-relaxed mb-6">
+            "LearnFlow completely changed my career. I went from zero coding experience to landing a job as a frontend developer in 6 months. The interactive approach is unmatched."
+          </blockquote>
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full border-[2.5px] border-[#134E4A] bg-gradient-to-br from-primary-200 to-primary-400 flex items-center justify-center font-heading font-bold text-[#134E4A] shadow-[inset_-2px_-2px_4px_rgba(0,0,0,0.06)]" aria-hidden="true">JD</div>
+            <div>
+              <p class="font-heading font-bold text-[#134E4A] text-sm">Jessica D.</p>
+              <p class="font-body text-xs text-[#134E4A]/50">Frontend Developer at Google</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="clay-card p-6 sm:p-8 bg-white">
+          <div class="flex items-center gap-1 mb-4">
+            <span class="star text-sm">★★★★★</span>
+            <span class="font-body text-xs text-[#134E4A]/50 ml-1">5.0</span>
+          </div>
+          <blockquote class="font-body text-sm text-[#134E4A]/80 leading-relaxed mb-6">
+            "The AI-powered learning path is incredible. It adapts to my pace and challenges me exactly where I need it. I've learned more in 3 months on LearnFlow than a year elsewhere."
+          </blockquote>
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full border-[2.5px] border-[#134E4A] bg-gradient-to-br from-accent-200 to-accent-400 flex items-center justify-center font-heading font-bold text-[#134E4A] shadow-[inset_-2px_-2px_4px_rgba(0,0,0,0.06)]" aria-hidden="true">MK</div>
+            <div>
+              <p class="font-heading font-bold text-[#134E4A] text-sm">Marcus K.</p>
+              <p class="font-body text-xs text-[#134E4A]/50">Data Scientist at Stripe</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="clay-card p-6 sm:p-8 bg-white sm:col-span-2 lg:col-span-1">
+          <div class="flex items-center gap-1 mb-4">
+            <span class="star text-sm">★★★★★</span>
+            <span class="font-body text-xs text-[#134E4A]/50 ml-1">5.0</span>
+          </div>
+          <blockquote class="font-body text-sm text-[#134E4A]/80 leading-relaxed mb-6">
+            "I love the gamification! The streaks, XP, and leaderboards make learning addictive. I've maintained a 60-day streak and can't imagine stopping now."
+          </blockquote>
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full border-[2.5px] border-[#134E4A] bg-gradient-to-br from-purple-200 to-purple-400 flex items-center justify-center font-heading font-bold text-[#134E4A] shadow-[inset_-2px_-2px_4px_rgba(0,0,0,0.06)]" aria-hidden="true">AL</div>
+            <div>
+              <p class="font-heading font-bold text-[#134E4A] text-sm">Aisha L.</p>
+              <p class="font-body text-xs text-[#134E4A]/50">UX Designer at Airbnb</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- PRICING                                                      -->
+  <!-- ============================================================ -->
+  <section id="pricing" class="py-16 sm:py-24 px-4 bg-primary-50/50" aria-label="Pricing plans">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14 sm:mb-18">
+        <div class="section-badge mb-4 mx-auto w-fit">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Pricing
+        </div>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#134E4A] mb-4">Simple, Transparent Pricing</h2>
+        <p class="font-body text-lg text-[#134E4A]/60 max-w-2xl mx-auto">Start free, upgrade when you're ready. No hidden fees, no surprises.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
+        <!-- Free Plan -->
+        <div class="clay-card p-6 sm:p-8 bg-white flex flex-col">
+          <div class="mb-6">
+            <p class="font-heading text-lg font-bold text-[#134E4A] mb-1">Starter</p>
+            <p class="font-body text-sm text-[#134E4A]/60 mb-4">Perfect for exploring</p>
+            <p class="font-heading text-4xl font-extrabold text-[#134E4A]">$0</p>
+            <p class="font-body text-sm text-[#134E4A]/50">forever free</p>
+          </div>
+          <ul class="space-y-3 mb-8 flex-1" role="list">
+            <li class="flex items-center gap-2.5 font-body text-sm text-[#134E4A]/80">
+              <svg class="w-5 h-5 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              20 free courses
+            </li>
+            <li class="flex items-center gap-2.5 font-body text-sm text-[#134E4A]/80">
+              <svg class="w-5 h-5 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              Community forum access
+            </li>
+            <li class="flex items-center gap-2.5 font-body text-sm text-[#134E4A]/80">
+              <svg class="w-5 h-5 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              Basic progress tracking
+            </li>
+          </ul>
+          <a href="#" class="clay-btn clay-btn-outline w-full justify-center no-underline cursor-pointer">Get Started</a>
+        </div>
+
+        <!-- Pro Plan (Popular) -->
+        <div class="clay-card-accent p-6 sm:p-8 bg-white flex flex-col relative">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+            <span class="clay-badge bg-accent text-white !border-[#C2410C] !shadow-[inset_-2px_-2px_5px_rgba(0,0,0,0.15),3px_3px_0px_#C2410C]">
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+              Most Popular
+            </span>
+          </div>
+          <div class="mb-6 mt-2">
+            <p class="font-heading text-lg font-bold text-[#134E4A] mb-1">Pro</p>
+            <p class="font-body text-sm text-[#134E4A]/60 mb-4">Serious learners</p>
+            <p class="font-heading text-4xl font-extrabold text-[#134E4A]">$29</p>
+            <p class="font-body text-sm text-[#134E4A]/50">per month</p>
+          </div>
+          <ul class="space-y-3 mb-8 flex-1" role="list">
+            <li class="flex items-center gap-2.5 font-body text-sm text-[#134E4A]/80">
+              <svg class="w-5 h-5 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              All 5,000+ courses
+            </li>
+            <li class="flex items-center gap-2.5 font-body text-sm text-[#134E4A]/80">
+              <svg class="w-5 h-5 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              AI-powered learning path
+            </li>
+            <li class="flex items-center gap-2.5 font-body text-sm text-[#134E4A]/80">
+              <svg class="w-5 h-5 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              Certificate on completion
+            </li>
+            <li class="flex items-center gap-2.5 font-body text-sm text-[#134E4A]/80">
+              <svg class="w-5 h-5 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              Full gamification & streaks
+            </li>
+            <li class="flex items-center gap-2.5 font-body text-sm text-[#134E4A]/80">
+              <svg class="w-5 h-5 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              Offline downloads
+            </li>
+          </ul>
+          <a href="#" class="clay-btn clay-btn-accent w-full justify-center no-underline cursor-pointer">Start Free Trial</a>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="clay-card p-6 sm:p-8 bg-white flex flex-col">
+          <div class="mb-6">
+            <p class="font-heading text-lg font-bold text-[#134E4A] mb-1">Enterprise</p>
+            <p class="font-body text-sm text-[#134E4A]/60 mb-4">Teams & organizations</p>
+            <p class="font-heading text-4xl font-extrabold text-[#134E4A]">$99</p>
+            <p class="font-body text-sm text-[#134E4A]/50">per seat / month</p>
+          </div>
+          <ul class="space-y-3 mb-8 flex-1" role="list">
+            <li class="flex items-center gap-2.5 font-body text-sm text-[#134E4A]/80">
+              <svg class="w-5 h-5 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              Everything in Pro
+            </li>
+            <li class="flex items-center gap-2.5 font-body text-sm text-[#134E4A]/80">
+              <svg class="w-5 h-5 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              Live mentorship sessions
+            </li>
+            <li class="flex items-center gap-2.5 font-body text-sm text-[#134E4A]/80">
+              <svg class="w-5 h-5 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              Custom learning paths
+            </li>
+            <li class="flex items-center gap-2.5 font-body text-sm text-[#134E4A]/80">
+              <svg class="w-5 h-5 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              Team analytics dashboard
+            </li>
+            <li class="flex items-center gap-2.5 font-body text-sm text-[#134E4A]/80">
+              <svg class="w-5 h-5 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              Priority support
+            </li>
+          </ul>
+          <a href="#" class="clay-btn clay-btn-primary w-full justify-center no-underline cursor-pointer">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- CTA / FINAL PUSH                                             -->
+  <!-- ============================================================ -->
+  <section class="py-16 sm:py-24 px-4" aria-label="Final call to action">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="clay-card-accent p-8 sm:p-14 bg-white relative overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute -top-20 -right-20 w-60 h-60 bg-accent/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+        <div class="absolute -bottom-20 -left-20 w-60 h-60 bg-primary/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+        <div class="relative z-10">
+          <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#134E4A] mb-4">
+            Ready to Transform Your Future?
+          </h2>
+          <p class="font-body text-lg text-[#134E4A]/70 max-w-xl mx-auto mb-8">
+            Join 500,000+ learners and start mastering new skills today. Your first course is on us.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+            <form class="flex flex-col sm:flex-row items-center gap-3 w-full max-w-md" onsubmit="event.preventDefault(); alert('Welcome to LearnFlow! Check your email to get started.');" aria-label="Sign up form">
+              <label for="cta-email" class="sr-only">Email address</label>
+              <input
+                id="cta-email"
+                type="email"
+                placeholder="Enter your email"
+                required
+                class="clay-input flex-1 min-w-0"
+                aria-required="true"
+              />
+              <button type="submit" class="clay-btn clay-btn-accent shrink-0 w-full sm:w-auto justify-center cursor-pointer">
+                Start Learning Free
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </button>
+            </form>
+          </div>
+
+          <p class="font-body text-sm text-[#134E4A]/50 flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            No credit card required &bull; Cancel anytime
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER                                                       -->
+  <!-- ============================================================ -->
+  <footer class="border-t-[3px] border-[#134E4A] bg-[#0F766E] py-12 sm:py-16 px-4" role="contentinfo">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
+        <!-- Brand -->
+        <div class="lg:col-span-2">
+          <a href="#" class="flex items-center gap-2.5 mb-4 no-underline cursor-pointer">
+            <div class="w-10 h-10 bg-white rounded-xl border-[2.5px] border-[#134E4A] flex items-center justify-center shadow-[inset_-2px_-2px_5px_rgba(0,0,0,0.08)]">
+              <svg class="w-6 h-6 text-[#0D9488]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+            </div>
+            <span class="font-heading text-xl font-bold text-white">LearnFlow</span>
+          </a>
+          <p class="font-body text-sm text-white/70 leading-relaxed max-w-sm mb-6">
+            Empowering 500K+ learners worldwide with interactive courses, AI-powered paths, and a community that keeps you growing.
+          </p>
+          <div class="flex items-center gap-3">
+            <a href="#" class="w-10 h-10 bg-white/15 rounded-xl border-[2px] border-white/30 flex items-center justify-center hover:bg-white/25 transition-colors duration-200 cursor-pointer" aria-label="Twitter">
+              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 bg-white/15 rounded-xl border-[2px] border-white/30 flex items-center justify-center hover:bg-white/25 transition-colors duration-200 cursor-pointer" aria-label="GitHub">
+              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 bg-white/15 rounded-xl border-[2px] border-white/30 flex items-center justify-center hover:bg-white/25 transition-colors duration-200 cursor-pointer" aria-label="LinkedIn">
+              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div>
+          <h4 class="font-heading text-base font-bold text-white mb-4">Platform</h4>
+          <ul class="space-y-2.5" role="list">
+            <li><a href="#" class="font-body text-sm text-white/70 hover:text-white transition-colors duration-200 no-underline cursor-pointer">Browse Courses</a></li>
+            <li><a href="#" class="font-body text-sm text-white/70 hover:text-white transition-colors duration-200 no-underline cursor-pointer">For Teams</a></li>
+            <li><a href="#" class="font-body text-sm text-white/70 hover:text-white transition-colors duration-200 no-underline cursor-pointer">Pricing</a></li>
+            <li><a href="#" class="font-body text-sm text-white/70 hover:text-white transition-colors duration-200 no-underline cursor-pointer">Mobile App</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading text-base font-bold text-white mb-4">Company</h4>
+          <ul class="space-y-2.5" role="list">
+            <li><a href="#" class="font-body text-sm text-white/70 hover:text-white transition-colors duration-200 no-underline cursor-pointer">About Us</a></li>
+            <li><a href="#" class="font-body text-sm text-white/70 hover:text-white transition-colors duration-200 no-underline cursor-pointer">Careers</a></li>
+            <li><a href="#" class="font-body text-sm text-white/70 hover:text-white transition-colors duration-200 no-underline cursor-pointer">Blog</a></li>
+            <li><a href="#" class="font-body text-sm text-white/70 hover:text-white transition-colors duration-200 no-underline cursor-pointer">Press Kit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading text-base font-bold text-white mb-4">Support</h4>
+          <ul class="space-y-2.5" role="list">
+            <li><a href="#" class="font-body text-sm text-white/70 hover:text-white transition-colors duration-200 no-underline cursor-pointer">Help Center</a></li>
+            <li><a href="#" class="font-body text-sm text-white/70 hover:text-white transition-colors duration-200 no-underline cursor-pointer">Community</a></li>
+            <li><a href="#" class="font-body text-sm text-white/70 hover:text-white transition-colors duration-200 no-underline cursor-pointer">Terms of Service</a></li>
+            <li><a href="#" class="font-body text-sm text-white/70 hover:text-white transition-colors duration-200 no-underline cursor-pointer">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="border-white/15 my-8 sm:my-10" />
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="font-body text-sm text-white/50">
+          &copy; 2026 LearnFlow Academy. All rights reserved.
+        </p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="font-body text-xs text-white/50 hover:text-white/70 transition-colors duration-200 no-underline cursor-pointer">Terms</a>
+          <a href="#" class="font-body text-xs text-white/50 hover:text-white/70 transition-colors duration-200 no-underline cursor-pointer">Privacy</a>
+          <a href="#" class="font-body text-xs text-white/50 hover:text-white/70 transition-colors duration-200 no-underline cursor-pointer">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
